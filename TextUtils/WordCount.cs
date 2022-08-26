@@ -13,12 +13,12 @@ namespace TextUtils
             }
 
             // Convert the string into an array of words.
-            var source = inputString.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' },
+            var source = inputString.Split(new [] { '.', '?', '!', ' ', ';', ':', ',' },
                                            StringSplitOptions.RemoveEmptyEntries);
 
             // Create the query. Use ToLowerInvariant to match uppercase/lowercase strings.
             var matchQuery = from word in source
-                             where word.ToLowerInvariant() == searchWord.ToLowerInvariant()
+                             where String.Equals(word, searchWord, StringComparison.InvariantCultureIgnoreCase)
                              select word;
 
             // Count the matches, which executes the query. Return the result.

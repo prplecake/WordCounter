@@ -1,11 +1,12 @@
 ﻿using System;
 using TextUtils;
 
+
 namespace WordCounterApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Enter a search word:");
             var searchWord = Console.ReadLine();

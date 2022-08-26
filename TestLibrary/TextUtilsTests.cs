@@ -1,10 +1,9 @@
 using Xunit;
 using TextUtils;
-using System.Diagnostics;
 
 namespace TestLibrary
 {
-    public class TextUtils_GetWordCountShould
+    public class TextUtilsGetWordCountShould
     {
         [Fact]
         public void IgnoreCasing()
