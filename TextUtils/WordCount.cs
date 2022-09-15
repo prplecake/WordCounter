@@ -5,7 +5,7 @@ namespace TextUtils;
 
 public static class WordCount
 {
-    public static int GetWordCount(string searchWord, string inputString)
+    public static int GetWordCount(string? searchWord, string? inputString)
     {
         // Null check these variables and determine if they have values.
         if (string.IsNullOrEmpty(searchWord) || string.IsNullOrEmpty(inputString))
