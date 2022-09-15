@@ -16,17 +16,24 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 2.1.x
+        dotnet-version: 6.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal --logger "trx" --results-directory "./TestResults"
+    - uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: .NET Test Results
+        path: TestResults/*.trx
+        reporter: dotnet-trx
+      
     - name: Publish
       run: dotnet publish WordCounterApp/WordCounterApp.csproj -c Release
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: publish
-        path: WordCounterApp/bin/Release/netcoreapp2.1/publish/
+        path: WordCounterApp/bin/Release/net6.0/publish/
