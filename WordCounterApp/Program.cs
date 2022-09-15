@@ -1,28 +1,23 @@
 ﻿using System;
 using TextUtils;
 
+namespace WordCounterApp;
 
-namespace WordCounterApp
+internal class Program
 {
-    class Program
+    private static void Main()
     {
-        static void Main()
+        Console.WriteLine("Enter a search word:");
+        string? searchWord = Console.ReadLine();
+        Console.WriteLine("Provide a string to search:");
+        string? inputString = Console.ReadLine();
+        int wordCount = WordCount.GetWordCount(searchWord, inputString);
+        var pluralChar = "s";
+        if (wordCount == 1)
         {
-            Console.WriteLine("Enter a search word:");
-            var searchWord = Console.ReadLine();
-            Console.WriteLine("Provide a string to search:");
-            var inputString = Console.ReadLine();
-
-            var wordCount = WordCount.GetWordCount(searchWord, inputString);
-
-            var pluralChar = "s";
-            if (wordCount == 1)
-            {
-                pluralChar = string.Empty;
-            }
-
-            Console.WriteLine($"The search word {searchWord} appears " +
-                              $"{wordCount} time{pluralChar}.");
+            pluralChar = string.Empty;
         }
+        Console.WriteLine($"The search word {searchWord} appears " +
+                          $"{wordCount} time{pluralChar}.");
     }
 }
