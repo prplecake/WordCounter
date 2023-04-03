@@ -16,10 +16,10 @@ jobs:
     - name: Setup .NET
     - uses: actions/cache@v3
       with:
-      path: ~/.nuget/packages
-      key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-      restore-keys: |
-        ${{ runner.os }}-nuget-
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.x
