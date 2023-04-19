@@ -1,5 +1,4 @@
-﻿using System;
-using TextUtils;
+﻿using TextUtils;
 
 namespace WordCounterApp;
 
